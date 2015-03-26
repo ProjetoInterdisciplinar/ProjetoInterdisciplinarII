@@ -36,7 +36,7 @@ public class Reserva {
         return this.usuario;
     }
     
-    public void InserirNomeUsuario(String novoNome){
+    public void AlterarNomeUsuario(String novoNome){
         this.usuario = novoNome;
         System.out.println("Usuário alterado com sucesso");
     }
@@ -45,11 +45,11 @@ public class Reserva {
         return this.cpf;
     }
     
-    public void InserirCpf(int novoCpf){
+    public void AlterarCpf(int novoCpf){
         this.cpf = novoCpf;
     }
     
-    public void InserirCpf(String novoCpf){
+    public void AlterarCpf(String novoCpf){
         this.cpf = Integer.getInteger(novoCpf.trim());
     }
 }
