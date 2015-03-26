@@ -47,9 +47,11 @@ public class Reserva {
     
     public void AlterarCpf(int novoCpf){
         this.cpf = novoCpf;
+        System.out.println("Usuário alterado com sucesso");
     }
     
     public void AlterarCpf(String novoCpf){
         this.cpf = Integer.getInteger(novoCpf.trim());
+        System.out.println("Usuário alterado com sucesso");
     }
 }
