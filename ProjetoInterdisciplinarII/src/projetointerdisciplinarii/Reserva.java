@@ -21,35 +21,35 @@ public class Reserva {
     private String usuario;
     private int cpf;
     
-    public Reserva(String usuario, int cpf){
+    public void Reserva(String usuario, int cpf){
         this.usuario = usuario;
         this.cpf = cpf;
     }
     
-    public String[] getInfo(){
+    public String[] ObterInfo(){
         String numCpf = Integer.toString(this.cpf);
         String[] conteudo = {this.usuario , numCpf };
         return conteudo;
     }
     
-    public String getNomeUsuario(){
+    public String ObterNomeUsuario(){
         return this.usuario;
     }
     
-    public void setNomeUsuario(String novoNome){
+    public void InserirNomeUsuario(String novoNome){
         this.usuario = novoNome;
         System.out.println("Usuário alterado com sucesso");
     }
     
-    public int getCpf(){
+    public int ObterCpf(){
         return this.cpf;
     }
     
-    public void setCpf(int novoCpf){
+    public void InserirCpf(int novoCpf){
         this.cpf = novoCpf;
     }
     
-    public void setCpf(String novoCpf){
+    public void InserirCpf(String novoCpf){
         this.cpf = Integer.getInteger(novoCpf.trim());
     }
 }
