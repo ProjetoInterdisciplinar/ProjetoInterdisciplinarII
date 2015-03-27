@@ -10,5 +10,11 @@ package projetointerdisciplinarii;
  * @author Azuos
  */
 public class Voo {
-    
+
+    private int numero;
+
+    public void AlteraNumero(int NovoNumero) {
+        this.numero = NovoNumero;
+    }
+
 }
