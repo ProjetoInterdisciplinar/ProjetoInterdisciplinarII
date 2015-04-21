@@ -16,6 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    Voo Voo1=new Voo();}
+    Voo Voo1=new Voo( 283, "São Paulo","Rio de Janeiro",150);
+    
     
 }
