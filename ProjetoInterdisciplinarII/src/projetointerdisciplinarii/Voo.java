@@ -30,11 +30,27 @@ public class Voo {
         this.Destino = Destino;
         this.NumerodeAssentos = numerodeAssentos;
     }
-    
-    public void AlteraNumero(int NovoNumero) {
+    public int RetornaNumero (){ //esse método retorna (get)número do voo
+        return numero;
+    }
+    public void AlteraNumero(int NovoNumero) {// esse método altera (set) numero do voo
         this.numero = NovoNumero;
     }
+    public  String RetornaOrigem (){ 
+        return Origem;
+    }
+    public void AlteraOrigem ( String NovaOrigem){ 
+        this.Origem = NovaOrigem;
+    }
     
+    public String RetornaDestino (){
+        return Destino;
+    }
+            
+    public void AlteraDestino (String NovoDestino){
+        this.Destino = NovoDestino;
+    }
+            
     public void NovaReserva(String nomePessoa, int cpf){
         /**
           *Se a lista de reservas não exceder a capacidade do voo
@@ -53,6 +69,9 @@ public class Voo {
         }
     }
     
-    
-
+    public void CancelaReserva (int cpf){
+        
+            
+        
+    }
 }

@@ -18,5 +18,5 @@ public class Main {
         // TODO code application logic here
     Voo Voo1=new Voo( 283, "São Paulo","Rio de Janeiro",150);
     
-    
+    }
 }
