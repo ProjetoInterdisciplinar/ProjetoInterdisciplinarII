@@ -21,8 +21,6 @@ public class Reserva {
     private String usuario;
     private int cpf;
 
-    
-    
     //se tiver void aqui, a IDE reclama e sugere a criação de um contrutor
     //apesar de já haver um
     //public void Reserva(String usuario, int cpf){
@@ -55,8 +53,5 @@ public class Reserva {
         System.out.println("Usuário alterado com sucesso");
     }
     
-    public void AlterarCpf(String novoCpf){
-        this.cpf = Integer.getInteger(novoCpf.trim());
-        System.out.println("Usuário alterado com sucesso");
-    }
+    
 }

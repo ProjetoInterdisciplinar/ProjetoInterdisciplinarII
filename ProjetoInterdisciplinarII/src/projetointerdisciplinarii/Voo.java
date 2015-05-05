@@ -5,7 +5,7 @@
  */
 package projetointerdisciplinarii;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  *
@@ -14,21 +14,19 @@ import java.util.ArrayList;
 public class Voo {
 
     private int numero;
-    private String Origem;
-    private String Destino;
-    private int NumerodeAssentos;
+    private String origem;
+    private String destino;    
+    private int numerodeAssentos;
     private ArrayList <Reserva> listaReservas;
-    
-   
-    
-   
-    public  Voo(int numeroVoo, String Origem, String Destino, int numerodeAssentos){
+    Scanner teclado;
+    public Voo(int numeroVoo, String Origem, String Destino, int numerodeAssentos){
         //esse método é executado na criação do objeto Voo
         listaReservas = new ArrayList();
         this.numero = numeroVoo;
-        this.Origem = Origem;
-        this.Destino = Destino;
-        this.NumerodeAssentos = numerodeAssentos;
+        this.origem = Origem;
+        this.destino = Destino;
+        this.numerodeAssentos = numerodeAssentos;
+        teclado = new Scanner(System.in);
     }
     public int RetornaNumero (){ //esse método retorna (get)número do voo
         return numero;
@@ -37,18 +35,22 @@ public class Voo {
         this.numero = NovoNumero;
     }
     public  String RetornaOrigem (){ 
-        return Origem;
+        return origem;
     }
     public void AlteraOrigem ( String NovaOrigem){ 
-        this.Origem = NovaOrigem;
+        this.origem = NovaOrigem;
     }
     
     public String RetornaDestino (){
-        return Destino;
+        return destino;
     }
             
     public void AlteraDestino (String NovoDestino){
-        this.Destino = NovoDestino;
+        this.destino = NovoDestino;
+    }
+    
+    public int NumAcentosDisponiveis(){
+     return numerodeAssentos;  
     }
             
     public void NovaReserva(String nomePessoa, int cpf){
@@ -58,19 +60,40 @@ public class Voo {
           * armazenar os dados do cliente na mesma
           * e podemos anexar essa reserva na lista de reservas para esse Voo 
           */
-        if(listaReservas.size()<NumerodeAssentos){
+        if(numerodeAssentos < 1){
             Reserva novaReserva = new Reserva(nomePessoa,cpf);
             listaReservas.add(novaReserva);
             System.out.println("A reserva do(a) Sr(a) "
                     +novaReserva.ObterNomeUsuario()
-                    +" Foi realizada com sucesso!");
+                    +" Foi realizada com sucesso!");            
+        numerodeAssentos++;
         }else{
             System.out.println("Não existem mais assentos disponíveis nesse Voo!!");
         }
+        
     }
     
     public void CancelaReserva (int cpf){
         
+        if(numerodeAssentos > 0){
+            for(Reserva reserva : listaReservas){
+                if(reserva.ObterCpf() == cpf){
+                    System.out.println("Deseja excuir a seguinte reserva?\nNome : "
+                            +reserva.ObterNomeUsuario()
+                            +"\nCPF : "
+                            +reserva.ObterCpf()
+                            +"Digite 's' para CONFIRMAR ou outra tecla para CANCELAR");
+                    if("s".equals(teclado.next().toLowerCase())){
+                        listaReservas.remove(reserva);
+                        System.out.println("Reserva cancelada com sucesso!!");
+                    }else{
+                        System.out.println("A operação foi cancelada pelo usuário!!");
+                    }
+                }
+            }
+        }else{
+            System.out.println("Não existem reservas nesse Voo");
+        }
             
         
     }
