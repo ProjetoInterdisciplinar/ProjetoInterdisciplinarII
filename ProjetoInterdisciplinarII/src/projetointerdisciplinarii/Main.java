@@ -5,18 +5,31 @@
  */
 package projetointerdisciplinarii;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author TiagoSarri
  */
 public class Main {
-
+private static ArrayList <Voo> listaVoos;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    Voo Voo1=new Voo( 283, "São Paulo","Rio de Janeiro",150);
+        adicionaVoo(283, "São Paulo","Rio de Janeiro",150);
     
+    }
+    
+    public static void adicionaVoo(int numeroVoo, String Origem, String Destino, int numerodeAssentos){
+     
+        Voo novoVoo=new Voo(numeroVoo, Origem, Destino, numerodeAssentos);
+        
+        listaVoos.add(novoVoo);
+        
+        System.out.println("Novo voo foi adicionado com sucesso!");
+                
+        
     }
 }

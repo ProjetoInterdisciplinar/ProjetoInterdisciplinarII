@@ -60,13 +60,13 @@ public class Voo {
           * armazenar os dados do cliente na mesma
           * e podemos anexar essa reserva na lista de reservas para esse Voo 
           */
-        if(numerodeAssentos < 1){
+        if(numerodeAssentos > 0){
             Reserva novaReserva = new Reserva(nomePessoa,cpf);
             listaReservas.add(novaReserva);
             System.out.println("A reserva do(a) Sr(a) "
                     +novaReserva.ObterNomeUsuario()
                     +" Foi realizada com sucesso!");            
-        numerodeAssentos++;
+        numerodeAssentos--;
         }else{
             System.out.println("Não existem mais assentos disponíveis nesse Voo!!");
         }
@@ -75,7 +75,7 @@ public class Voo {
     
     public void CancelaReserva (int cpf){
         
-        if(numerodeAssentos > 0){
+        if(!listaReservas.isEmpty()){
             for(Reserva reserva : listaReservas){
                 if(reserva.ObterCpf() == cpf){
                     System.out.println("Deseja excuir a seguinte reserva?\nNome : "
