@@ -9,22 +9,24 @@ import java.util.*;
 
 /**
  *
- * @author Azuos
+ * @author Azuos & Rosangela
  */
 public class Voo {
-
     private int numero;
     private String origem;
     private String destino;    
     private int numerodeAssentos;
     private ArrayList <Reserva> listaReservas;
     Scanner teclado;
-    public Voo(int numeroVoo, String Origem, String Destino, int numerodeAssentos){
+    
+    //idem a classe Reserva
+    //public void Voo(int numeroVoo, String origem, String destino, int numerodeAssentos){
+    public Voo(int numeroVoo, String origem, String destino, int numerodeAssentos){
         //esse método é executado na criação do objeto Voo
         listaReservas = new ArrayList();
         this.numero = numeroVoo;
-        this.origem = Origem;
-        this.destino = Destino;
+        this.origem = origem;
+        this.destino = destino;
         this.numerodeAssentos = numerodeAssentos;
         teclado = new Scanner(System.in);
     }
@@ -37,16 +39,16 @@ public class Voo {
     public  String RetornaOrigem (){ 
         return origem;
     }
-    public void AlteraOrigem ( String NovaOrigem){ 
-        this.origem = NovaOrigem;
+    public void AlteraOrigem (String novaOrigem){ 
+        this.origem = novaOrigem;
     }
     
     public String RetornaDestino (){
         return destino;
     }
             
-    public void AlteraDestino (String NovoDestino){
-        this.destino = NovoDestino;
+    public void AlteraDestino (String novoDestino){
+        this.destino = novoDestino;
     }
     
     public int NumAcentosDisponiveis(){
@@ -69,12 +71,10 @@ public class Voo {
         numerodeAssentos--;
         }else{
             System.out.println("Não existem mais assentos disponíveis nesse Voo!!");
-        }
-        
+        }        
     }
     
-    public void CancelaReserva (int cpf){
-        
+    public void CancelaReserva (int cpf){        
         if(!listaReservas.isEmpty()){
             for(Reserva reserva : listaReservas){
                 if(reserva.ObterCpf() == cpf){
@@ -94,7 +94,5 @@ public class Voo {
         }else{
             System.out.println("Não existem reservas nesse Voo");
         }
-            
-        
     }
 }

@@ -20,7 +20,6 @@ package projetointerdisciplinarii;
 public class Reserva {
     private String usuario;
     private int cpf;
-
     //se tiver void aqui, a IDE reclama e sugere a criação de um contrutor
     //apesar de já haver um
     //public void Reserva(String usuario, int cpf){

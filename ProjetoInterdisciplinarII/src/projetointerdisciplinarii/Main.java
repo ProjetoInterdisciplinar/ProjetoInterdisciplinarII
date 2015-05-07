@@ -18,18 +18,13 @@ private static ArrayList <Voo> listaVoos;
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        adicionaVoo(283, "São Paulo","Rio de Janeiro",150);
-    
+        listaVoos = new ArrayList();
+        AdicionaVoo(283, "São Paulo","Rio de Janeiro",150);   //teste, dps tenho q retirar isso kkkk[tiago silva]
     }
     
-    public static void adicionaVoo(int numeroVoo, String Origem, String Destino, int numerodeAssentos){
-     
-        Voo novoVoo=new Voo(numeroVoo, Origem, Destino, numerodeAssentos);
-        
-        listaVoos.add(novoVoo);
-        
-        System.out.println("Novo voo foi adicionado com sucesso!");
-                
-        
+    public static void AdicionaVoo(int numeroVoo, String Origem, String Destino, int numerodeAssentos){
+        Voo novoVoo = new Voo(numeroVoo, Origem, Destino, numerodeAssentos);        
+        listaVoos.add(novoVoo);        
+        System.out.println("Novo Voo foi adicionado com sucesso!");
     }
 }
