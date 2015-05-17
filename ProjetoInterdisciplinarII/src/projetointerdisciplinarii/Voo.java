@@ -17,28 +17,27 @@ public class Voo {
     private String destino;    
     private int numerodeAssentos;
     private ArrayList <Reserva> listaReservas;
-    Scanner teclado;
     
-    //idem a classe Reserva
-    //public void Voo(int numeroVoo, String origem, String destino, int numerodeAssentos){
-    public Voo(int numeroVoo, String origem, String destino, int numerodeAssentos){
-        //esse método é executado na criação do objeto Voo
+    public Voo(int numero, String origem, String destino, int numerodeAssentos){
         listaReservas = new ArrayList();
-        this.numero = numeroVoo;
+        this.numero = numero;
         this.origem = origem;
         this.destino = destino;
         this.numerodeAssentos = numerodeAssentos;
-        teclado = new Scanner(System.in);
     }
-    public int RetornaNumero (){ //esse método retorna (get)número do voo
+    
+    public int RetornaNumero (){
         return numero;
     }
-    public void AlteraNumero(int NovoNumero) {// esse método altera (set) numero do voo
+    
+    public void AlteraNumero(int NovoNumero) {
         this.numero = NovoNumero;
     }
+    
     public  String RetornaOrigem (){ 
         return origem;
     }
+    
     public void AlteraOrigem (String novaOrigem){ 
         this.origem = novaOrigem;
     }
@@ -54,6 +53,12 @@ public class Voo {
     public int NumAcentosDisponiveis(){
      return numerodeAssentos;  
     }
+    
+    public static void AdicionaVoo(int numeroVoo, String Origem, String Destino, int numerodeAssentos){
+        //Voo novoVoo = new Voo(numeroVoo, Origem, Destino, numerodeAssentos);        
+        //listaVoos.add(novoVoo);        
+        //System.out.println("Novo Voo foi adicionado com sucesso!");
+    }    
             
     public void NovaReserva(String nomePessoa, int cpf){
         /**
@@ -83,12 +88,12 @@ public class Voo {
                             +"\nCPF : "
                             +reserva.ObterCpf()
                             +"Digite 's' para CONFIRMAR ou outra tecla para CANCELAR");
-                    if("s".equals(teclado.next().toLowerCase())){
-                        listaReservas.remove(reserva);
-                        System.out.println("Reserva cancelada com sucesso!!");
-                    }else{
-                        System.out.println("A operação foi cancelada pelo usuário!!");
-                    }
+                    //if("s".equals(teclado.next().toLowerCase())){
+                        //listaReservas.remove(reserva);
+                        //System.out.println("Reserva cancelada com sucesso!!");
+                    //}else{
+                      //  System.out.println("A operação foi cancelada pelo usuário!!");
+                    //}
                 }
             }
         }else{
