@@ -44,16 +44,16 @@ public class Main {
                 if (scaMenu.hasNextInt())
                         opcaoMenu = scaMenu.nextInt();
 
-                //Verifico se a informação de entrada é maior que zero e menor que 4
-                if (opcaoMenu > 0 && opcaoMenu < 4)
+                //Verifico se a informação de entrada é maior que zero e menor que 7
+                if (opcaoMenu > 0 && opcaoMenu < 7)
                     dadoCorreto = true;
 
                 if (dadoCorreto)
                 {
                     if (opcaoMenu == 1)
-                            Opcao1();
+                            OpcaoCadastrarVoo();
                     else if (opcaoMenu == 2)
-                            Opcao2();
+                            OpcaoCancelarVoo();
                     else if (opcaoMenu == 3)
                             Opcao3();
                 } else {
@@ -73,11 +73,11 @@ public class Main {
     }
     
     public static void ExibeMenu() {
-        String strMenu = "MENU \n Escolha a opção: \n 1 - Cadastrar Voo \n 2 - Exibir atual \n 3 - Sair";
+        String strMenu = "MENU \n Escolha a opção: \n 1 - Cadastrar Voo \n 2 - Cancelamento de voo \n 3 - Nova reserva \n 4 - Lista de Reserva \n 5 - Lista de Voo \n 6 - Sair";
         System.out.println(strMenu);
     }
     
-    public static void Opcao1() {
+    public static void OpcaoCadastrarVoo() {
         Scanner scaMenu = new Scanner(System.in);
         String vooOrigem, vooDestino;
         int vooNumero, vooNumeroAssentos;
@@ -97,17 +97,30 @@ public class Main {
         
         vooItem = new Voo(vooNumero, vooOrigem, vooDestino, vooNumeroAssentos);
         
-        System.out.println(gerencia.adicionarVoo(vooItem));
+        System.out.println(gerencia.AdicionarVoo(vooItem));
         
         System.out.println("");
-        System.out.println("");        
+        System.out.println("");  
+        
+        //scaMenu.close();
+        
         IniciaPrograma();
     }
     
-    public static void Opcao2() {
-        //System.out.println(gerencia.listarLivrosAtual());
+    public static void OpcaoCancelarVoo() {
+        Scanner scaMenu = new Scanner(System.in);
+        int vooNumero;
+        
+        System.out.println("Informe o número do voo:");
+        vooNumero = scaMenu.nextInt();
+        
+        //System.out.println(gerencia.adicionarVoo(vooItem));
+        
         System.out.println("");
-        System.out.println("");
+        System.out.println("");  
+        
+        scaMenu.close();
+        
         IniciaPrograma();
     }
     

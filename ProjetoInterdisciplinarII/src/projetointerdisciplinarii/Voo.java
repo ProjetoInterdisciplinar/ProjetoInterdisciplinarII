@@ -51,15 +51,9 @@ public class Voo {
     }
     
     public int NumAcentosDisponiveis(){
-     return numerodeAssentos;  
+        return numerodeAssentos;  
     }
     
-    public static void AdicionaVoo(int numeroVoo, String Origem, String Destino, int numerodeAssentos){
-        //Voo novoVoo = new Voo(numeroVoo, Origem, Destino, numerodeAssentos);        
-        //listaVoos.add(novoVoo);        
-        //System.out.println("Novo Voo foi adicionado com sucesso!");
-    }    
-            
     public void NovaReserva(String nomePessoa, int cpf){
         /**
           *Se a lista de reservas não exceder a capacidade do voo
@@ -100,4 +94,14 @@ public class Voo {
             System.out.println("Não existem reservas nesse Voo");
         }
     }
+    
+    //@Override
+    public boolean equals(Voo voo) {
+        if (voo == null) {
+            return false;
+        }
+        
+        return voo.numero == this.numero
+            || (this.numero > 0 && this.numero == voo.numero);
+    }    
 }
