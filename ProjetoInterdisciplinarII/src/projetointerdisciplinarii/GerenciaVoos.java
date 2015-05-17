@@ -63,5 +63,19 @@ public class GerenciaVoos {
          }
          
          return rtn;
-     }     
+     }
+     
+     public String AdicionarReserva(int vooNumero, String reservaNome, int reservaCPF) {
+         String rtn;
+         int indexVoo = this.VerificaIndexNumeroVoo(vooNumero);
+         
+         if (indexVoo > -1) {
+            Reserva reserva = new Reserva(reservaNome, reservaCPF);
+            rtn = listaVoos.get(indexVoo).NovaReserva(reserva);
+         } else {
+            rtn = "Não existem voo com o número " + vooNumero;
+         }
+         
+         return rtn;
+     }
 }

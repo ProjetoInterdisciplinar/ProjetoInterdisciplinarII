@@ -124,25 +124,24 @@ public class Main {
     
     public static void OpcaoCadastrarReserva() {
         Scanner scaMenu = new Scanner(System.in);
-        String vooOrigem, vooDestino;
-        int vooNumero, vooNumeroAssentos;
-        Voo vooItem;
+        String reservaNome;
+        int reservaCPF, vooNumero;
         
-        System.out.println("Informe o número do voo:");
-        vooNumero = scaMenu.nextInt();
-        
-        System.out.println("Informe a origem do voo:");
-        vooOrigem = scaMenu.next();
-        
-        System.out.println("Informe o destino do voo:");
-        vooDestino = scaMenu.next();
-        
-        System.out.println("Informe o número de assentos do voo:");
-        vooNumeroAssentos = scaMenu.nextInt();
-        
-        vooItem = new Voo(vooNumero, vooOrigem, vooDestino, vooNumeroAssentos);
-        
-        System.out.println(gerencia.AdicionarVoo(vooItem));
+        if (gerencia.ExisteVooCadastrado())
+        {
+            System.out.println("Informe o número do voo:");
+            vooNumero = scaMenu.nextInt();
+
+            System.out.println("Informe o seu nome:");
+            reservaNome = scaMenu.next();
+
+            System.out.println("Informe o seu CPF:");
+            reservaCPF = scaMenu.nextInt();
+
+            System.out.println(gerencia.AdicionarReserva(vooNumero, reservaNome, reservaCPF));
+        } else {
+            System.out.println("É necessário a inclusão de um voo antes de fazer uma reserva");
+        }
         
         System.out.println("");
         System.out.println("");  

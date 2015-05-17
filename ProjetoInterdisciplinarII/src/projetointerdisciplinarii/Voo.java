@@ -54,22 +54,17 @@ public class Voo {
         return numerodeAssentos;  
     }
     
-    public void NovaReserva(String nomePessoa, int cpf){
-        /**
-          *Se a lista de reservas não exceder a capacidade do voo
-          * podemos gerar uma nova reserva,
-          * armazenar os dados do cliente na mesma
-          * e podemos anexar essa reserva na lista de reservas para esse Voo 
-          */
+    public String NovaReserva(Reserva reserva){
         if(numerodeAssentos > 0){
-            Reserva novaReserva = new Reserva(nomePessoa,cpf);
-            listaReservas.add(novaReserva);
-            System.out.println("A reserva do(a) Sr(a) "
-                    +novaReserva.ObterNomeUsuario()
-                    +" Foi realizada com sucesso!");            
-        numerodeAssentos--;
+            listaReservas.add(reserva);
+            numerodeAssentos--;
+            
+            return "A reserva do(a) Sr(a) "
+                    +reserva.ObterNomeUsuario()
+                    +" Foi realizada com sucesso!";
+            
         }else{
-            System.out.println("Não existem mais assentos disponíveis nesse Voo!!");
+            return "Não existem mais assentos disponíveis nesse Voo!!";
         }        
     }
     
