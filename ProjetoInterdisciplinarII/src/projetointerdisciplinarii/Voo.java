@@ -16,7 +16,7 @@ public class Voo {
     private String origem;
     private String destino;    
     private int numerodeAssentos;
-    private ArrayList <Reserva> listaReservas;
+    private ArrayList<Reserva> listaReservas;
     
     public Voo(int numero, String origem, String destino, int numerodeAssentos){
         listaReservas = new ArrayList();
@@ -26,7 +26,7 @@ public class Voo {
         this.numerodeAssentos = numerodeAssentos;
     }
     
-    public int RetornaNumero (){
+    public int ObterNumero (){
         return numero;
     }
     
@@ -34,7 +34,7 @@ public class Voo {
         this.numero = NovoNumero;
     }
     
-    public  String RetornaOrigem (){ 
+    public  String ObterOrigem (){ 
         return origem;
     }
     
@@ -42,7 +42,7 @@ public class Voo {
         this.origem = novaOrigem;
     }
     
-    public String RetornaDestino (){
+    public String ObterDestino (){
         return destino;
     }
             
@@ -50,14 +50,21 @@ public class Voo {
         this.destino = novoDestino;
     }
     
-    public int NumAcentosDisponiveis(){
+    public int ObterNumerodeAcentos(){
         return numerodeAssentos;  
     }
     
+    public int ObterNumerodeReservas() {
+        return listaReservas.size();
+    }
+    
+    public ArrayList<Reserva> ObterReservas() {
+        return listaReservas;
+    }    
+    
     public String NovaReserva(Reserva reserva){
-        if(numerodeAssentos > 0){
+        if(listaReservas.size() < numerodeAssentos){
             listaReservas.add(reserva);
-            numerodeAssentos--;
             
             return "A reserva do(a) Sr(a) "
                     +reserva.ObterNomeUsuario()
@@ -68,29 +75,6 @@ public class Voo {
         }        
     }
     
-    public void CancelaReserva (int cpf){        
-        if(!listaReservas.isEmpty()){
-            for(Reserva reserva : listaReservas){
-                if(reserva.ObterCpf() == cpf){
-                    System.out.println("Deseja excuir a seguinte reserva?\nNome : "
-                            +reserva.ObterNomeUsuario()
-                            +"\nCPF : "
-                            +reserva.ObterCpf()
-                            +"Digite 's' para CONFIRMAR ou outra tecla para CANCELAR");
-                    //if("s".equals(teclado.next().toLowerCase())){
-                        //listaReservas.remove(reserva);
-                        //System.out.println("Reserva cancelada com sucesso!!");
-                    //}else{
-                      //  System.out.println("A operação foi cancelada pelo usuário!!");
-                    //}
-                }
-            }
-        }else{
-            System.out.println("Não existem reservas nesse Voo");
-        }
-    }
-    
-    //@Override
     public boolean equals(Voo voo) {
         if (voo == null) {
             return false;

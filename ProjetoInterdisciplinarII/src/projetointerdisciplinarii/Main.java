@@ -57,7 +57,11 @@ public class Main {
                     else if (opcaoMenu == 3)
                             OpcaoCadastrarReserva();
                     else if (opcaoMenu == 4)
-                            Opcao3();                    
+                            OpcaoListarReservas();
+                    else if (opcaoMenu == 5)
+                            OpcaoListarVoos();
+                    else if (opcaoMenu == 6)
+                            OpcaoSair();                    
                 } else {
                     System.out.println("Por favor escolha uma opção válida");
                     ExibeMenu();
@@ -149,7 +153,23 @@ public class Main {
         IniciaPrograma();
     }    
     
-    public static void Opcao3() {
+    public static void OpcaoListarVoos()
+    {
+        gerencia.ListarVoos();
+        System.out.println("");
+        System.out.println("");
+        IniciaPrograma();        
+    }
+    
+    public static void OpcaoListarReservas()
+    {
+        gerencia.ListarReservas();
+        System.out.println("");
+        System.out.println("");
+        IniciaPrograma();        
+    }
+    
+    public static void OpcaoSair() {
         System.exit(0);
     }      
 }
