@@ -55,7 +55,9 @@ public class Main {
                     else if (opcaoMenu == 2)
                             OpcaoCancelarVoo();
                     else if (opcaoMenu == 3)
-                            Opcao3();
+                            OpcaoCadastrarReserva();
+                    else if (opcaoMenu == 4)
+                            Opcao3();                    
                 } else {
                     System.out.println("Por favor escolha uma opção válida");
                     ExibeMenu();
@@ -102,8 +104,6 @@ public class Main {
         System.out.println("");
         System.out.println("");  
         
-        //scaMenu.close();
-        
         IniciaPrograma();
     }
     
@@ -114,15 +114,41 @@ public class Main {
         System.out.println("Informe o número do voo:");
         vooNumero = scaMenu.nextInt();
         
-        //System.out.println(gerencia.adicionarVoo(vooItem));
+        System.out.println(gerencia.CancelarVoo(vooNumero));
         
         System.out.println("");
         System.out.println("");  
         
-        scaMenu.close();
-        
         IniciaPrograma();
     }
+    
+    public static void OpcaoCadastrarReserva() {
+        Scanner scaMenu = new Scanner(System.in);
+        String vooOrigem, vooDestino;
+        int vooNumero, vooNumeroAssentos;
+        Voo vooItem;
+        
+        System.out.println("Informe o número do voo:");
+        vooNumero = scaMenu.nextInt();
+        
+        System.out.println("Informe a origem do voo:");
+        vooOrigem = scaMenu.next();
+        
+        System.out.println("Informe o destino do voo:");
+        vooDestino = scaMenu.next();
+        
+        System.out.println("Informe o número de assentos do voo:");
+        vooNumeroAssentos = scaMenu.nextInt();
+        
+        vooItem = new Voo(vooNumero, vooOrigem, vooDestino, vooNumeroAssentos);
+        
+        System.out.println(gerencia.AdicionarVoo(vooItem));
+        
+        System.out.println("");
+        System.out.println("");  
+        
+        IniciaPrograma();
+    }    
     
     public static void Opcao3() {
         System.exit(0);

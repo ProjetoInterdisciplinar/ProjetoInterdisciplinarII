@@ -20,7 +20,7 @@ public class GerenciaVoos {
      }
      
      public String AdicionarVoo(Voo voo) {
-         if (VerificaNumeroVoo(voo.RetornaNumero())) {
+         if (this.VerificaIndexNumeroVoo(voo.RetornaNumero()) > -1) {
             return "Número do voo já existe.";
          } else {
             listaVoos.add(voo);
@@ -28,28 +28,36 @@ public class GerenciaVoos {
          }
      }
      
-     public Boolean VerificaNumeroVoo(int numero) {
-         Boolean rtn = false;
+     public int VerificaIndexNumeroVoo(int numero) {
+         int rtn = -1;
+         int count = 0;
          
          if (this.listaVoos.size() > 0) {
              for (Voo item : this.listaVoos) {
                  if (item.RetornaNumero() == numero) {
-                     rtn = true;
+                     rtn = count;
                      break;
                  }
+                 count++;
              }
          }         
          
          return rtn;
      }
      
+     public Boolean ExisteVooCadastrado()
+     {
+         return (this.listaVoos.size() > 0)? true : false;
+     }
+     
      public String CancelarVoo(int numero) {
-         String rtn = "Nenhum voo cadastrado";
+         String rtn;
+         int indexVoo = this.VerificaIndexNumeroVoo(numero);
          
-         if (this.VerificaNumeroVoo(numero))
+         if (indexVoo > -1)
          {
-             
-             
+             listaVoos.remove(indexVoo);
+             rtn = "Voo removido com sucesso.";
          } else {
              rtn = "Não existem voo com o número " + numero;
          }
